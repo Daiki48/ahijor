@@ -111,10 +111,6 @@ pub fn html_with_tera() -> Result<(), Error> {
     visit_dirs(Path::new("pages"), &mut porcess_entry_closure)?;
     println!("Created HTML in build directory!");
 
-    // let src_favicon: &Path = Path::new("static/favicon.ico");
-    // let dst_favicon: &Path = Path::new("build/favicon.ico");
-    // std::fs::copy(src_favicon, dst_favicon)?;
-    // println!("Copy favicon.");
     Ok(())
 }
 

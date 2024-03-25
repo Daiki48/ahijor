@@ -60,16 +60,10 @@ fn add_routes_for_dir(mut router: Router, dir: &Path, base_path: &str) -> Result
         let nested_route: String = format!("{}/", route_path);
         println!("nested_route : {}", &nested_route);
         println!("path : {:?}", &path);
-        router = router
-            .route(
-                nested_route.as_str(),
-                axum::routing::get_service(ServeDir::new("./build")),
-            )
-            .route_service(
-                // Double registration error
-                "/favicon.ico",
-                axum::routing::get_service(ServeDir::new("./build")),
-            );
+        router = router.route(
+            nested_route.as_str(),
+            axum::routing::get_service(ServeDir::new("./build")),
+        );
     }
     Ok(router)
 }
